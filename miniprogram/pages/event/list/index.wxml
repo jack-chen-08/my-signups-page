@@ -1,0 +1,6 @@
+<view class="placeholder">
+  <view class="placeholder__title">活动列表</view>
+  <view class="placeholder__desc">{{tip}}</view>
+  <view class="placeholder__desc">本页为路由占位页，用于承接「去看看活动」跳转。</view>
+  <view class="placeholder__btn" bindtap="onBack">返回我的报名</view>
+</view>

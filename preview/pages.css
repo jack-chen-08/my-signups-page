@@ -1,0 +1,355 @@
+/* 「我的报名」页面的预览专用样式（与 miniprogram wxss 数值等价：1px = 2rpx） */
+body {
+  background: #e8e9ec;
+}
+
+.frame {
+  width: 390px;
+  background: var(--bg);
+  padding-bottom: 10px;
+}
+
+.caption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a4a4a;
+  letter-spacing: 0.3px;
+}
+
+.caption .label {
+  flex: none;
+  white-space: nowrap;
+}
+
+.caption .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--brand);
+}
+
+.caption .hint {
+  flex: 1;
+  min-width: 0;
+  font-size: 11px;
+  font-weight: 400;
+  color: #7c7c7c;
+}
+
+/* 状态栏右侧图标 */
+.statusbar .status-right {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.statusbar .bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 10px;
+}
+
+.statusbar .bars b {
+  display: block;
+  width: 3px;
+  background: #000;
+  border-radius: 1px;
+}
+
+.statusbar .bars b:nth-child(1) { height: 4px; }
+.statusbar .bars b:nth-child(2) { height: 6px; }
+.statusbar .bars b:nth-child(3) { height: 8px; }
+.statusbar .bars b:nth-child(4) { height: 10px; }
+
+.statusbar .battery {
+  width: 22px;
+  height: 11px;
+  border: 1px solid #000000cc;
+  border-radius: 3px;
+  position: relative;
+}
+
+.statusbar .battery::before {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  width: 14px;
+  background: #000;
+  border-radius: 1px;
+}
+
+.statusbar .battery::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 3px;
+  width: 2px;
+  height: 4px;
+  background: #00000066;
+  border-radius: 1px;
+}
+
+/* Tab 标题徽标 */
+.tabs .tab .tab-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.tab-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  margin-left: 4px;
+  border-radius: 8px;
+  background: #d54941;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+/* 报名卡片 */
+.signup-card {
+  background: #fff;
+  border-radius: 12px;
+  margin: 12px 12px 0;
+  padding: 12px;
+}
+
+.card-main {
+  display: flex;
+  align-items: flex-start;
+}
+
+.cover {
+  flex: none;
+  width: 84px;
+  height: 84px;
+  border-radius: 8px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.cover span {
+  font-size: 28px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+}
+
+.title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.meta-k {
+  flex: none;
+  width: 28px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.meta-v {
+  flex: 1;
+  min-width: 0;
+  color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.deadline {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 2px 5px;
+  border-radius: 3px;
+  background: var(--warning-bg);
+  color: var(--warning);
+  font-size: 10px;
+  line-height: 14px;
+}
+
+/* 状态标签：6 色映射与 logic/signups.ts 一致 */
+.tag {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 3px;
+  font-size: 10px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tag.is-signed { color: #2ba471; background: #e3f9e9; }
+.tag.is-waitlist { color: #e37318; background: #fff1e9; }
+.tag.is-reviewing { color: #0052d9; background: #e3f0ff; }
+.tag.is-rejected { color: #8b8b8b; background: #eeeeee; }
+.tag.is-cancelled { color: #8b8b8b; background: #eeeeee; }
+.tag.is-checked-in { color: #fff; background: #2ba471; }
+
+/* 审核说明 */
+.review {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.review-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.review-toggle {
+  color: var(--brand);
+}
+
+.review-body {
+  margin-top: 6px;
+  padding: 8px;
+  border-radius: 6px;
+  background: #f7f7f7;
+  font-size: 12px;
+  line-height: 18px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* 操作区 */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.card-footer .btn {
+  height: 30px;
+  padding: 0 12px;
+  margin-left: 8px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.btn.done {
+  border-color: var(--line);
+  background: #f7f7f7;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.list-tip {
+  padding: 16px 0 4px;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.3);
+}
+
+/* 空状态 */
+.empty-card {
+  background: #fff;
+  margin: 12px;
+  border-radius: 12px;
+  padding: 56px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-art {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background: #f3f3f3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.empty-ticket {
+  width: 50px;
+  height: 36px;
+  border: 2px solid #d9d9d9;
+  border-radius: 6px;
+  padding: 8px 6px;
+}
+
+.empty-ticket i {
+  display: block;
+  height: 4px;
+  border-radius: 2px;
+  background: #e3e3e3;
+  margin-bottom: 5px;
+}
+
+.empty-ticket i.short {
+  width: 60%;
+  margin-bottom: 0;
+}
+
+.empty-text {
+  font-size: 15px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.empty-desc {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.empty-btn {
+  margin-top: 20px;
+  height: 36px;
+  padding: 0 24px;
+  border-radius: 6px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}

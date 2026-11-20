@@ -1,0 +1,78 @@
+PASS tests/nav.test.ts
+  路由 URL 构造
+    ✓ survey=pending 的「填写问卷」跳 pages/survey/fill?event_id= (6 ms)
+    ✓ 电子票跳 pages/ticket/detail，带活动与报名 id (1 ms)
+    ✓ 空状态「去看看活动」跳 pages/event/list (1 ms)
+    ✓ buildUrl 对参数做 URL 编码并跳过空值 (1 ms)
+    ✓ 参数按 key 字典序，保证同参数同 URL（便于缓存比较）
+    ✓ parseQuery 能还原编码后的参数 (1 ms)
+
+PASS tests/api.test.ts
+  mock 接口：GET /api/mini/me/signups
+    ✓ 返回 list / counts / page / page_size / has_more 结构 (9 ms)
+    ✓ 历史栏分页：第 1 页 6 条，最后第 3 页只有 0~6 条且 has_more=false (1 ms)
+    ✓ tab=all 返回全部记录 (1 ms)
+    ✓ 列表接口失败时抛错（页面展示重试态） (11 ms)
+    ✓ 接口地址常量与对接文档一致
+  mock 接口：POST /api/mini/me/signups/{id}/cancel
+    ✓ 取消成功：返回 ok，并从进行中移入历史 (1 ms)
+    ✓ 取消后再拉列表：进行中不含该条，历史含该条（状态持久化） (1 ms)
+    ✓ 取消接口失败：返回 ok=false + 中文提示，且列表不移动 (4 ms)
+    ✓ 取消不存在的记录：ok=false，提示「未找到这条报名记录」 (1 ms)
+    ✓ 取消后待填问卷角标数不变（问卷不因取消而消失） (1 ms)
+
+PASS tests/signups.test.ts
+  状态标签：6 种状态 → 文案 / 颜色类名
+    ✓ status=signed → 已报名 / is-signed (4 ms)
+    ✓ status=reviewing → 审核中 / is-reviewing (1 ms)
+    ✓ status=rejected → 未通过 / is-rejected
+    ✓ status=cancelled → 已取消 / is-cancelled (1 ms)
+    ✓ status=checked_in → 已签到 / is-checked-in
+    ✓ 候补状态拼上排名：候补第 3 位，且为橙色类名 (1 ms)
+    ✓ 候补缺排名时兜底为「候补第 1 位」，不出现 undefined
+    ✓ 颜色表：已报名绿、候补橙、审核中蓝、未通过灰、已取消灰、已签到绿底白字
+    ✓ 未知状态不抛错（兜底为灰）
+  操作按钮可见性
+    ✓ can_cancel=false 不显示「取消报名」
+    ✓ can_cancel=true 显示「取消报名」 (1 ms)
+    ✓ ticket_available 控制「电子票」显隐
+    ✓ survey=pending 显示「填写问卷」，不显示「已提交问卷」 (1 ms)
+    ✓ survey=submitted 只显示「已提交问卷」
+    ✓ 已取消的报名不再显示任何操作按钮
+    ✓ rejected 且有 review_note → 可展开审核说明 (1 ms)
+  Tab 分组
+    ✓ 进行中只含 signed / waitlist / reviewing，其余进历史 (1 ms)
+    ✓ 按时间倒序，新报名在前
+  取消报名后的列表迁移
+    ✓ 取消成功后：从进行中移除、出现在历史、状态为已取消 (1 ms)
+    ✓ 取消后进入历史首位（按状态变更时间排序）
+    ✓ 记录不存在时不移动、列表长度不变 (1 ms)
+    ✓ 三种取消原因都有中文文案
+    ✓ applyCancel 不改 created_at，只写 updated_at (1 ms)
+  待填问卷角标计数
+    ✓ 有待填问卷时显示，数字等于待填数
+    ✓ 没有待填问卷时隐藏角标（不显示 0） (1 ms)
+    ✓ computeCounts 同时给出两栏条数 (1 ms)
+  分页与合并
+    ✓ paginate 按页切片并给出 has_more (5 ms)
+    ✓ mergePage 按 id 去重合并，不产生重复卡片 (1 ms)
+    ✓ mergePage 对空页安全
+  空状态
+    ✓ 列表为空时展示空状态与「去看看活动」
+    ✓ 有数据时不展示空状态 (1 ms)
+  卡片视图模型
+    ✓ toCardModel 一次算好 tag / actions / 封面占位
+    ✓ 有 cover_url 时改用真实图片背景
+    ✓ coverStyle 对同一活动稳定（不会每次渲染换色）
+  mock 数据完整性
+    ✓ 至少 16 条记录
+    ✓ 覆盖全部 6 种状态 (1 ms)
+    ✓ 覆盖 can_cancel 真假、ticket_available 真假、survey 三态
+    ✓ 每条记录字段完整，且不含手机号 / 邮箱等真实个人信息 (5 ms)
+    ✓ 待填问卷数量与截图用 badging 一致（3 条）
+
+Test Suites: 3 passed, 3 total
+Tests:       55 passed, 55 total
+Snapshots:   0 total
+Time:        2.081 s
+Ran all test suites.

@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/me/signups/index",
+    "pages/event/list/index",
+    "pages/ticket/detail/index",
+    "pages/survey/fill/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "我的报名",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f3f3f3"
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

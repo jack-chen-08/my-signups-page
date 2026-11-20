@@ -1,0 +1,7 @@
+<view class="placeholder">
+  <view class="placeholder__title">电子票</view>
+  <view class="placeholder__desc">{{tip}}</view>
+  <view class="placeholder__kv">活动 ID：{{eventId}}</view>
+  <view class="placeholder__kv">报名 ID：{{signupId}}</view>
+  <view class="placeholder__btn" bindtap="onBack">返回</view>
+</view>

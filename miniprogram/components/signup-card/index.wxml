@@ -1,0 +1,66 @@
+<view class="signup-card">
+  <view class="card-main">
+    <view class="cover" style="{{coverStyle}}">
+      <text class="cover-char">{{coverChar}}</text>
+    </view>
+
+    <view class="info">
+      <view class="title-row">
+        <text class="title">{{record.event_title}}</text>
+        <status-tag text="{{tag.text}}" cls="{{tag.cls}}" solid="{{tag.solid}}" />
+      </view>
+      <view class="meta">
+        <text class="meta-label">时间</text>
+        <text class="meta-value">{{record.time_text}}</text>
+      </view>
+      <view class="meta">
+        <text class="meta-label">空间</text>
+        <text class="meta-value">{{record.space_name}}</text>
+      </view>
+      <view class="deadline" wx:if="{{actions.showSurveyFill && record.survey_deadline}}">
+        问卷截止 {{record.survey_deadline}}
+      </view>
+    </view>
+  </view>
+
+  <view class="review" wx:if="{{actions.canExpandReview}}">
+    <view class="review-head" bindtap="onToggleReview" hover-class="review-head--hover">
+      <text class="review-title">审核说明</text>
+      <text class="review-toggle">{{expanded ? '收起' : '展开'}}</text>
+    </view>
+    <view class="review-body" wx:if="{{expanded}}">{{record.review_note}}</view>
+  </view>
+
+  <view
+    class="card-footer"
+    wx:if="{{actions.showTicket || actions.showCancel || actions.showSurveyFill || actions.showSurveyDone}}"
+  >
+    <view
+      wx:if="{{actions.showCancel}}"
+      class="btn btn-ghost"
+      data-type="cancel"
+      bindtap="onAction"
+      hover-class="btn--hover"
+    >取消报名</view>
+    <view
+      wx:if="{{actions.showSurveyDone}}"
+      class="btn btn-done"
+      data-type="survey_done"
+      bindtap="onAction"
+    >已提交问卷</view>
+    <view
+      wx:if="{{actions.showSurveyFill}}"
+      class="btn btn-primary"
+      data-type="survey"
+      bindtap="onAction"
+      hover-class="btn--hover"
+    >填写问卷</view>
+    <view
+      wx:if="{{actions.showTicket}}"
+      class="btn btn-primary"
+      data-type="ticket"
+      bindtap="onAction"
+      hover-class="btn--hover"
+    >电子票</view>
+  </view>
+</view>

@@ -1,0 +1,49 @@
+/* 6 种状态 → 6 套配色（与 logic/signups.ts STATUS_META 严格一致） */
+.status-tag {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  height: 36rpx;
+  padding: 0 12rpx;
+  border-radius: 6rpx;
+  font-size: 20rpx;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* 已报名：绿字浅绿底 */
+.status-tag.is-signed {
+  color: #2ba471;
+  background: #e3f9e9;
+}
+
+/* 候补第 N 位：橙字浅橙底 */
+.status-tag.is-waitlist {
+  color: #e37318;
+  background: #fff1e9;
+}
+
+/* 审核中：蓝字浅蓝底 */
+.status-tag.is-reviewing {
+  color: #0052d9;
+  background: #e3f0ff;
+}
+
+/* 未通过：灰字浅灰底 */
+.status-tag.is-rejected {
+  color: #8b8b8b;
+  background: #eeeeee;
+}
+
+/* 已取消：灰字浅灰底 */
+.status-tag.is-cancelled {
+  color: #8b8b8b;
+  background: #eeeeee;
+}
+
+/* 已签到：绿底白字（实心） */
+.status-tag.is-checked-in,
+.status-tag.is-solid {
+  color: #ffffff;
+  background: #2ba471;
+}

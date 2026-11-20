@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390, initial-scale=1">
+<title>我的报名 · 6 种状态</title>
+<link rel="stylesheet" href="preview.css">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+
+<!-- ① 进行中 -->
+<div class="caption"><span class="dot"></span><span class="label">进行中</span><span class="hint">已报名（绿）/ 候补第 3 位（橙）/ 审核中（蓝）</span></div>
+<div class="frame">
+  <div class="statusbar">
+    <span class="time">9:41</span>
+    <span class="status-right">
+      <i class="bars"><b></b><b></b><b></b><b></b></i>
+      <span>5G</span>
+      <i class="battery"></i>
+    </span>
+  </div>
+  <div class="navbar">
+    <span class="back">‹</span>
+    我的报名
+    <span class="capsule"><span>•••</span><span>◉</span></span>
+  </div>
+  <div class="tabs">
+    <div class="tab active">进行中</div>
+    <div class="tab">
+      <span class="tab-label">历史<span class="tab-badge">3</span></span>
+    </div>
+  </div>
+
+  <div class="page">
+    <!-- 已报名 -->
+    <div class="signup-card">
+      <div class="card-main">
+        <div class="cover" style="background-image:linear-gradient(135deg,#7fb2ff 0%,#0052d9 100%)"><span>城</span></div>
+        <div class="info">
+          <div class="title-row">
+            <div class="title">城市漫步·老城建筑导览</div>
+            <span class="tag is-signed">已报名</span>
+          </div>
+          <div class="meta"><span class="meta-k">时间</span><span class="meta-v">12月06日 周六 14:00-16:30</span></div>
+          <div class="meta"><span class="meta-k">空间</span><span class="meta-v">拾光共创空间 3F·梧桐厅</span></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="btn ghost">取消报名</span>
+        <span class="btn primary">电子票</span>
+      </div>
+    </div>
+
+    <!-- 候补第 3 位 -->
+    <div class="signup-card">
+      <div class="card-main">
+        <div class="cover" style="background-image:linear-gradient(135deg,#ffc48a 0%,#e37318 100%)"><span>周</span></div>
+        <div class="info">
+          <div class="title-row">
+            <div class="title">周末手冲咖啡工作坊</div>
+            <span class="tag is-waitlist">候补第 3 位</span>
+          </div>
+          <div class="meta"><span class="meta-k">时间</span><span class="meta-v">12月13日 周六 10:00-12:00</span></div>
+          <div class="meta"><span class="meta-k">空间</span><span class="meta-v">谷雨生活馆 2F·吧台区</span></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="btn ghost">取消报名</span>
+      </div>
+    </div>
+
+    <!-- 审核中（can_cancel=false，无操作按钮） -->
+    <div class="signup-card">
+      <div class="card-main">
+        <div class="cover" style="background-image:linear-gradient(135deg,#b6a6ff 0%,#6b4ee6 100%)"><span>独</span></div>
+        <div class="info">
+          <div class="title-row">
+            <div class="title">独立开发者夜谈 第七期</div>
+            <span class="tag is-reviewing">审核中</span>
+          </div>
+          <div class="meta"><span class="meta-k">时间</span><span class="meta-v">12月19日 周五 19:30-21:30</span></div>
+          <div class="meta"><span class="meta-k">空间</span><span class="meta-v">云栖共享办公 B1·阶梯厅</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ② 历史 -->
+<div class="caption"><span class="dot"></span><span class="label">历史</span><span class="hint">未通过（灰）/ 已取消（灰）/ 已签到（绿底白字）· Tab 角标 = 待填问卷 3</span></div>
+<div class="frame">
+  <div class="statusbar">
+    <span class="time">9:41</span>
+    <span class="status-right">
+      <i class="bars"><b></b><b></b><b></b><b></b></i>
+      <span>5G</span>
+      <i class="battery"></i>
+    </span>
+  </div>
+  <div class="navbar">
+    <span class="back">‹</span>
+    我的报名
+    <span class="capsule"><span>•••</span><span>◉</span></span>
+  </div>
+  <div class="tabs">
+    <div class="tab">进行中</div>
+    <div class="tab active">
+      <span class="tab-label">历史<span class="tab-badge">3</span></span>
+    </div>
+  </div>
+
+  <div class="page">
+    <!-- 未通过（可展开审核说明） -->
+    <div class="signup-card">
+      <div class="card-main">
+        <div class="cover" style="background-image:linear-gradient(135deg,#8fd9b6 0%,#2ba471 100%)"><span>亲</span></div>
+        <div class="info">
+          <div class="title-row">
+            <div class="title">亲子自然观察营（秋季场）</div>
+            <span class="tag is-rejected">未通过</span>
+          </div>
+          <div class="meta"><span class="meta-k">时间</span><span class="meta-v">11月08日 周六 09:00-11:30</span></div>
+          <div class="meta"><span class="meta-k">空间</span><span class="meta-v">青禾社区花园 北门集合</span></div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-head"><span>审核说明</span><span class="review-toggle">收起</span></div>
+        <div class="review-body">本次活动名额已满，优先录取有自然观察经验的家庭。欢迎报名下期活动。</div>
+      </div>
+    </div>
+
+    <!-- 已取消 -->
+    <div class="signup-card">
+      <div class="card-main">
+        <div class="cover" style="background-image:linear-gradient(135deg,#b6a6ff 0%,#6b4ee6 100%)"><span>深</span></div>
+        <div class="info">
+          <div class="title-row">
+            <div class="title">深夜书影会·冬夜场</div>
+            <span class="tag is-cancelled">已取消</span>
+          </div>
+          <div class="meta"><span class="meta-k">时间</span><span class="meta-v">10月25日 周六 20:00-22:00</span></div>
+          <div class="meta"><span class="meta-k">空间</span><span class="meta-v">回声书店 2F·阅读区</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 已签到 + 待填问卷 -->
+    <div class="signup-card">
+      <div class="card-main">
+        <div class="cover" style="background-image:linear-gradient(135deg,#ffa8a8 0%,#d54941 100%)"><span>社</span></div>
+        <div class="info">
+          <div class="title-row">
+            <div class="title">社区烘焙开放日</div>
+            <span class="tag is-checked-in">已签到</span>
+          </div>
+          <div class="meta"><span class="meta-k">时间</span><span class="meta-v">10月18日 周六 15:00-17:00</span></div>
+          <div class="meta"><span class="meta-k">空间</span><span class="meta-v">麦田烘焙工坊 1F·操作台</span></div>
+          <div class="deadline">问卷截止 11月30日 23:59</div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="btn primary">填写问卷</span>
+      </div>
+    </div>
+
+    <!-- 已签到 + 问卷已提交 -->
+    <div class="signup-card">
+      <div class="card-main">
+        <div class="cover" style="background-image:linear-gradient(135deg,#9ad7e8 0%,#1a7f9e 100%)"><span>城</span></div>
+        <div class="info">
+          <div class="title-row">
+            <div class="title">城市骑行·滨江线</div>
+            <span class="tag is-checked-in">已签到</span>
+          </div>
+          <div class="meta"><span class="meta-k">时间</span><span class="meta-v">09月27日 周六 08:00-11:00</span></div>
+          <div class="meta"><span class="meta-k">空间</span><span class="meta-v">滨江绿道 3 号驿站</span></div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="btn done">已提交问卷</span>
+      </div>
+    </div>
+
+    <div class="list-tip">没有更多了</div>
+  </div>
+</div>
+
+
+
+<script>
+/* 单状态截图模式：只保留指定状态的那张卡片，供 AC「6 种状态各一张截图」使用 */
+(function () {
+  var only = 'is-signed';
+  var target = document.querySelector('.tag.' + only);
+  if (!target) { document.title = 'MISS ' + only; return; }
+  var card = target.closest('.signup-card');
+  var frame = card.closest('.frame');
+  document.querySelectorAll('.caption').forEach(function (c) { c.remove(); });
+  document.querySelectorAll('.signup-card').forEach(function (c) { if (c !== card) c.remove(); });
+  document.querySelectorAll('.list-tip').forEach(function (c) { c.remove(); });
+  document.querySelectorAll('.frame').forEach(function (f) { if (f !== frame) f.remove(); });
+  document.title = 'OK ' + only;
+})();
+</script>
+</body>
+</html>

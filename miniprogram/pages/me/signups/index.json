@@ -1,0 +1,15 @@
+{
+  "navigationBarTitleText": "我的报名",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "backgroundColor": "#f3f3f3",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 80,
+  "usingComponents": {
+    "t-tabs": "tdesign-miniprogram/tabs/tabs",
+    "t-tab-panel": "tdesign-miniprogram/tab-panel/tab-panel",
+    "t-action-sheet": "tdesign-miniprogram/action-sheet/action-sheet",
+    "signup-card": "../../../components/signup-card/index"
+  }
+}

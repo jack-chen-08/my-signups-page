@@ -1,0 +1,26 @@
+/* 全局设计变量：与 preview/preview.css 保持一致 */
+page {
+  --brand: #0052d9;
+  --brand-light: #e3f0ff;
+  --success: #2ba471;
+  --success-bg: #e3f9e9;
+  --warning: #e37318;
+  --warning-bg: #fff1e9;
+  --error: #d54941;
+  --grey: #8b8b8b;
+  --grey-bg: #eeeeee;
+  --text: rgba(0, 0, 0, 0.9);
+  --text-2: rgba(0, 0, 0, 0.6);
+  --text-3: rgba(0, 0, 0, 0.3);
+  --bg: #f3f3f3;
+  --line: #e7e7e7;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 28rpx;
+  font-family: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
+}
+
+view,
+text {
+  box-sizing: border-box;
+}

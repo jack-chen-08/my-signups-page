@@ -1,0 +1,71 @@
+<view class="page">
+  <!-- 顶部 Tab：进行中 / 历史（历史标题旁「待填问卷」角标） -->
+  <view class="tabs-wrap">
+    <t-tabs value="{{tab}}" theme="line" bind:change="onTabChange" t-class="signup-tabs">
+      <t-tab-panel value="active" label="进行中" />
+      <!-- badge-props 透传给 TDesign Badge；仅当待填问卷数 > 0 时非 null，避免显示 0 -->
+      <t-tab-panel value="history" label="历史" badge-props="{{badgeProps}}" />
+    </t-tabs>
+  </view>
+
+  <!-- 骨架屏 -->
+  <view class="skeleton" wx:if="{{loading}}">
+    <view class="skeleton-card" wx:for="{{[1,2,3]}}" wx:key="*this">
+      <view class="skeleton-cover"></view>
+      <view class="skeleton-lines">
+        <view class="skeleton-line w70"></view>
+        <view class="skeleton-line w90"></view>
+        <view class="skeleton-line w50"></view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 加载失败 -->
+  <view class="error" wx:elif="{{error}}">
+    <view class="error-text">{{error}}</view>
+    <view class="btn btn-primary" bindtap="onRetry">重新加载</view>
+  </view>
+
+  <!-- 列表 -->
+  <block wx:elif="{{!empty.show}}">
+    <signup-card
+      wx:for="{{visible}}"
+      wx:key="id"
+      record="{{item}}"
+      tag="{{item.tag}}"
+      actions="{{item.actions}}"
+      cover-style="{{item.coverStyle}}"
+      cover-char="{{item.coverChar}}"
+      expanded="{{expandedId === item.id}}"
+      bind:action="onCardAction"
+    />
+    <view class="list-tip">
+      <text wx:if="{{loadingMore}}">加载中…</text>
+      <text wx:elif="{{!hasMore}}">没有更多了</text>
+      <text wx:else>上拉加载更多</text>
+    </view>
+  </block>
+
+  <!-- 空状态 -->
+  <view class="empty" wx:else>
+    <view class="empty-art">
+      <view class="empty-ticket">
+        <view class="empty-ticket__line"></view>
+        <view class="empty-ticket__line short"></view>
+      </view>
+    </view>
+    <view class="empty-text">{{empty.text}}</view>
+    <view class="empty-desc">{{empty.desc}}</view>
+    <view class="btn btn-primary empty-btn" bindtap="onGoEvents">{{empty.action_text}}</view>
+  </view>
+</view>
+
+<!-- 取消报名原因选择 -->
+<t-action-sheet
+  visible="{{sheetVisible}}"
+  items="{{sheetItems}}"
+  cancel-text="再想想"
+  show-cancel
+  bind:selected="onSheetSelected"
+  bind:close="onSheetClose"
+/>

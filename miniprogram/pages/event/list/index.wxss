@@ -1,0 +1,30 @@
+.placeholder {
+  padding: 120rpx 48rpx;
+  text-align: center;
+}
+
+.placeholder__title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.placeholder__desc {
+  margin-top: 16rpx;
+  font-size: 26rpx;
+  line-height: 40rpx;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.placeholder__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 48rpx;
+  height: 72rpx;
+  padding: 0 40rpx;
+  border-radius: 36rpx;
+  background: #0052d9;
+  color: #ffffff;
+  font-size: 28rpx;
+}

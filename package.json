@@ -1,0 +1,20 @@
+{
+  "name": "mp-order",
+  "private": true,
+  "version": "1.0.0",
+  "description": "我的报名页（微信小程序 / TypeScript / TDesign）",
+  "scripts": {
+    "test": "jest",
+    "test:report": "mkdir -p reports && jest --ci --verbose 2>&1 | tee reports/jest.txt",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "tdesign-miniprogram": "^1.9.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "typescript": "^5.6.3"
+  }
+}
